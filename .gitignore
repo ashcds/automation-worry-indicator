@@ -1,0 +1,53 @@
+# Ignore virtual environment
+techenv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Hidden OS/system files
+.DS_Store
+Thumbs.db
+
+# Python egg metadata
+*.egg-info/
+*.egg
+
+# Logs and outputs
+*.log
+*.out
+
+# VSCode / IDE config
+.vscode/
+.idea/
+
+# Environment & dependency files
+.env
+.env.*
+
+# Data files
+*.xlsx
+*.xls
+*.sav
+*.h5
+*.db
+
+# Model artifacts
+*.model
+*.onnx
+
+# SHAP plots and temp images
+*.png
+*.svg
+*.pdf
+
+# Test or debug artifacts
+*.bak
+*.tmp
+
+# Pytest cache
+.pytest_cache/
