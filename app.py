@@ -38,13 +38,13 @@ if page == "Resume":
     st.title("Aishwarya Cherian")
     st.header("Education")
     st.markdown("""
-                **M.S. Data Science** 
+                **M.S. Data Science**  
                 Eastern University, 2024-2025
 
-                **M.S. Mechanical Engineering** 
+                **M.S. Mechanical Engineering**   
                 University of Michigan - Ann Arbor, 2021-2022
 
-                **B.S. Mechanical Engineering / Commerce (Finance)**  
+                **B.S. Mechanical Engineering / Commerce (Finance)**   
                 University of Sydney, 2014-2018 
     """)
 
