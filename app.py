@@ -86,7 +86,7 @@ if page == "Resume":
 if page == "Projects":
     st.title("My Projects")
     st.markdown("""
-                - [Diabetes Risk Predictor] (https://github.com/ashcds/US-diabetes-health-indicators)   
+                - [Diabetes Risk Predictor](https://github.com/ashcds/US-diabetes-health-indicators)   
 
                 ** More to come!**
                 """)
