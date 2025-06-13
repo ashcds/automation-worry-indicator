@@ -7,3 +7,4 @@ xgboost
 ipykernel
 shap
 imblearn
+streamlit
