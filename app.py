@@ -39,10 +39,10 @@ if page == "Resume":
     st.header("Education")
     st.markdown("""
                 **M.S. Data Science**  
-                Eastern University, 2024-2025
+                Eastern University, 2024 - 2025
 
                 **M.S. Mechanical Engineering, 4.0**   
-                University of Michigan - Ann Arbor, 2021-2022
+                University of Michigan - Ann Arbor, 2021 - 2022
 
                 **B.S. Mechanical Engineering (Honors) / Commerce (Finance)**   
                 University of Sydney, 2014 - 2018 
@@ -51,7 +51,7 @@ if page == "Resume":
     st.header("Work Experience")
     st.markdown("""
                 **Whirlpool Corporation**   
-                *Senior Data Analyst, 2022-Present*   
+                *Senior Data Analyst, 2022 - Present*   
                 - Led a cross-functional team of developers to successfully deliver project data requirements and prepare data for ingestion into GCP BigQuery for the data strategy implementation   
                 - Analyzed data with Postgres SQL and developed dashboards in Looker and Tableau on product development project progression, resources, electronics asset volumes and cost to allow easy access to actionable insights for engineers and EES Leadership reducing their analytics effort by 30%   
                 - Supported analytics for electronics Zero-base Plan Complexity Reduction Workstream and overall compliance to reduce legacy complexity by ~10% per year   
@@ -79,13 +79,17 @@ if page == "Resume":
     """)
 
 
+# -------------------------------------
+# Page 3: Other Projects 
+# -------------------------------------
 
+if page == "Projects":
+    st.title("My Projects")
+    st.markdown("""
+                - [Diabetes Risk Predictor] (https://github.com/ashcds/US-diabetes-health-indicators)   
 
-
-
-
-
-
+                ** More to come!**
+                """)
 
 
 
