@@ -13,7 +13,6 @@ page = st.sidebar.radio("Go to", ["Home", "Resume", "Projects", "Automation Worr
 
 if page == "Home":
     st.title("Welcome to My Portfolio")
-    st.image("my_pic.jpg", width=200)
     st.header("About Me")
     st.markdown("""
                 Hello! I'm Aishwarya (Ash), a Senior Data Analyst in the home appliances industry. I have experience in various domains, including finance, consulting, and manufacturing. I enjoy working with data to solve complex business problems and drive strategic decision-making.
@@ -36,6 +35,7 @@ if page == "Home":
 
 if page == "Resume":
     st.title("Aishwarya Cherian")
+    st.image("my_pic.jpg", width=200)
     st.header("Education")
     st.markdown("""
                 **M.S. Data Science**  
@@ -71,9 +71,7 @@ if page == "Resume":
 
                 **Data Visualization:** Tableau, Looker Studio 
 
-                **Databases:** MySQL, PostgreSQL
-
-                **Cloud Platforms:** AWS (S3, EC2), GCP
+                **Databases and Cloud:** MySQL, PostgreSQL, AWS Redshift, GCP Bigquery   
 
                 **Certifications:** AWS Certified Cloud Practioner, Lean Six Sigma Green Belt (Black Belt Trained)
     """)
@@ -92,8 +90,27 @@ if page == "Projects":
                 """)
 
 
+# -------------------------------------
+# Page 3: Automation Worry Predictor 
+# -------------------------------------
 
+if page == "Automation Worry Predictor":
+    st.title("Automation Worry Predictor")
+    st.markdown("""
+                This project aims to predict the likelihood of employees feeling worried about automation in their jobs. The model is trained on various features such as job role, industry, and demographic information.
 
+                **Key Steps:**
+                1. Data Collection: Gather data from employee surveys and industry reports.
+                2. Feature Engineering: Create relevant features that capture the nuances of automation anxiety.
+                3. Model Training: Train a machine learning model to predict worry levels.
+                4. Evaluation: Assess the model's performance and make improvements.
+
+                **Technologies Used:**
+                - Python
+                - Scikit-learn
+                - Pandas
+                - NumPy
+                """)
 
 
 # Load the pre-trained model
