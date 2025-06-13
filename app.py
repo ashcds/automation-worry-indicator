@@ -88,7 +88,7 @@ if page == "Projects":
     st.markdown("""
                 - [Diabetes Risk Predictor](https://github.com/ashcds/US-diabetes-health-indicators)   
 
-                ** More to come!**
+                **More to come!**
                 """)
 
 
