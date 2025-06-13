@@ -13,12 +13,12 @@ st.markdown("This app predicts the presence of heart disease based on user input
 st.sidebar.title("Navigation")
 
 
-from streamlit_extras.switch_page_button import switch_page
-from streamlit_extras.stoggle import stoggle
+# from streamlit_extras.switch_page_button import switch_page
+# from streamlit_extras.stoggle import stoggle
 
 
 
 
 
-from streamlit_extras.add_vertical_space import add_vertical_space
-from streamlit_extras.colored_header import colored_header  
+# from streamlit_extras.add_vertical_space import add_vertical_space
+# from streamlit_extras.colored_header import colored_header  
