@@ -41,15 +41,28 @@ if page == "Resume":
                 **M.S. Data Science**  
                 Eastern University, 2024-2025
 
-                **M.S. Mechanical Engineering**   
+                **M.S. Mechanical Engineering, 4.0**   
                 University of Michigan - Ann Arbor, 2021-2022
 
-                **B.S. Mechanical Engineering / Commerce (Finance)**   
-                University of Sydney, 2014-2018 
+                **B.S. Mechanical Engineering (Honors) / Commerce (Finance)**   
+                University of Sydney, 2014 - 2018 
     """)
 
     st.header("Work Experience")
+    st.markdown("""
+                **Whirlpool Corporation**
+                *Senior Data Analyst, 2022-Present*
+                - Led a cross-functional team of developers to successfully deliver project data requirements and prepare data for ingestion into GCP BigQuery for the data strategy implementation
+                - Analyzed data with Postgres SQL and developed dashboards in Looker and Tableau on product development project progression, resources, electronics asset volumes and cost to allow easy access to actionable insights for engineers and EES Leadership reducing their analytics effort by 30%
+                - Supported analytics for electronics Zero-base Plan Complexity Reduction Workstream and overall compliance to
+reduce legacy complexity by ~10% per year   
 
+                **Commonwealth Bank of Australia**
+                *Data Analyst, Data and Decision Science, 2019 - 2020*
+                - Analyzed large datasets of over 10M records with SQL to understand key drivers of trends in retail banking portfolio
+                - Built interactive Tableau dashboards for management to monitor essential portfolio performance measures
+                - Delivered key insights on the ~$500B home loan portfolio to set tolerances for pertinent risk metrics as part of the Risk Appetite Statement annual refresh to reduce risk by 15 basis points.
+                """)
 
     st.header("Technical Skills")
     st.markdown("""
