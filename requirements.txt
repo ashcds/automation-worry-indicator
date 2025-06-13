@@ -6,5 +6,6 @@ seaborn
 xgboost
 ipykernel
 shap
+joblib
 imblearn
 streamlit
