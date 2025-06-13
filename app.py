@@ -12,7 +12,7 @@ page = st.sidebar.radio("Go to", ["Home", "Resume", "Projects", "Automation Worr
 # -------------------------------------
 
 if page == "Home":
-    st.title("Welcome to my Portfolio")
+    st.title("Welcome to My Portfolio")
     st.image("my_pic.jpg", width=200)
     st.header("About Me")
     st.markdown("""
@@ -28,6 +28,44 @@ if page == "Home":
                 In my free time I enjoy playing badminton, latin dancing, reading and travelling to new places. I also love to explore new technologies and stay updated with the latest trends in data science and machine learning.
 
                 """)
+    
+
+# -------------------------------------
+# Page 2: Resume 
+# -------------------------------------
+
+if page == "Resume":
+    st.title("Aishwarya Cherian")
+    st.header("Education")
+    st.markdown("""
+                **M.S. Data Science** 
+                Eastern University, 2024-2025
+
+                **M.S. Mechanical Engineering** 
+                University of Michigan - Ann Arbor, 2021-2022
+
+                **B.S. Mechanical Engineering / Commerce (Finance)**  
+                University of Sydney, 2014-2018 
+    """)
+
+    st.header("Work Experience")
+
+
+    st.header("Technical Skills")
+    st.markdown("""
+                **Programming Languages:** Python, SQL, R
+
+                **Data Analysis Tools:** Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, TensorFlow, Keras
+
+                **Data Visualization:** Tableau, Looker Studio 
+
+                **Databases:** MySQL, PostgreSQL
+
+                **Cloud Platforms:** AWS (S3, EC2), GCP
+
+                **Certifications:** AWS Certified Cloud Practioner, Lean Six Sigma Green Belt (Black Belt Trained)
+    """)
+
 
 
 
