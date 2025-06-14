@@ -137,12 +137,24 @@ if page == "Automation Worry Predictor":
     model = jl.load('best_xgb_model.pkl')
 
     # Input fields for user to enter data
-    st.header("Enter your responses:")
-    cars3b = st.selectbox("Do you have a car?", ["Yes", "No"])
-    robjob4b = st.selectbox("Have you ever lost a job due to automation?", ["Yes", "No"])
-    cars7b = st.selectbox("Do you think automation will make your job easier?", ["Yes", "No"])
-    robjob4a = st.selectbox("Have you ever been worried about losing your job due to automation?", ["Yes", "No"])
-    cars7a = st.selectbox("Do you think automation will create more jobs?", ["Yes", "No"])
+    st.header("Please answer the following questions:")
+    cars3b = st.selectbox(
+        "How ENTHUSIASTIC are you, if at all, about the development of driverless vehicles?", 
+        ["--Select an Option--", "Very Enthusiastic", "Somewhat Enthusiastic", "Not Too Enthusiastic", "Not at All Enthusiastic"])
+    
+    cars7a = st.selectbox(
+        "How safe would you feel sharing the road with a driverless passenger vehicle?",
+        ["--Select an Option--", "Very Safe", "Somewhat Safe", "Not Too Safe", "Not at All Safe"])
+
+    cars7b = st.selectbox(
+        "How safe would you feel sharing the road with a driverless freight truck?", 
+        ["--Select an Option--", "Very Safe", "Somewhat Safe", "Not Too Safe", "Not at All Safe"])
+
+    robjob4b = st.selectbox("If robots and computers were able to perform most of the jobs currently being done by humans, would it be likely or unlikely that inequality between rich and poor would be much worse than it is today?", 
+                            ["--Select an Option--", "Yes Likely", "No, Not Likely"])
+
+    robjob4a = st.selectbox("If robots and computers were able to perform most of the jobs currently being done by humans, would it be likely or unlikely that people would have a hard time finding things to do with their lives?", 
+                            ["--Select an Option--", "Yes Likely", "No, Not Likely"])
 
     # Convert input data to appropriate format for prediction
     input_data = pd.DataFrame({
