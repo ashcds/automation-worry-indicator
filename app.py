@@ -5,7 +5,7 @@ import numpy as np
 
 # Side-bar navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "Resume", "Projects", "Automation Worry Predictor"])
+page = st.sidebar.radio("Go to", ["Home", "Resume", "Projects", "Capstone Project Overview", "Automation Worry Predictor"])
 
 # -------------------------------------
 # Page 1: Biographical Hompage 
@@ -94,8 +94,8 @@ if page == "Projects":
 # Page 3: Automation Worry Predictor 
 # -------------------------------------
 
-if page == "Automation Worry Predictor":
-    st.title("Automation Worry Predictor")
+if page == "Capstone Project Overview":
+    st.title("Capstone Project Overview: Automation Worry Predictor")
     st.markdown("""
                 **Problem Statement:**   
                 As AI and automation technologies continue to advance at a rapid pace, concerns about their impact on jobs and livelihoods is growing. 
@@ -108,33 +108,58 @@ if page == "Automation Worry Predictor":
                 - Target variable: `ROBJOB3b_W27` (1 = worried, 0 = not worried)
 
                 Feature selection was done using chi-square test and SHAP to understand which features with the most relevant for model performance. Based on this analysis the following features were selected:
-                - CARS3B_W27
-                - ROBJOB4B_W27
-                - CARS7B_W27
-                - ROBJOB4A_W27
-                - CARS7A_W27
+                - `CARS3B_W27`
+                - `ROBJOB4B_W27`
+                - `CARS7B_W27`
+                - `ROBJOB4A_W27`
+                - `CARS7A_W27`
 
                 RandomOverSampler was used to balance the dataset as ~70% of the data was of positive class (worried about automation). The model was trained using Logistic Regression, XGBoost and Random Forest classifiers. Cross validation was used to evaluate model performance and hyperparameter tuning was done using GridSearchCV. The best performing model was selected based on F1 score.
 
 
                 **Results:**
-                - Best performing model: XGBoost Classifier with F1 score of 0.72 on test set. The F1 for the positive class (worried about automation) was 0.80. 
+                - Best performing model: XGBoost Classifier with F1 score of 0.72 on test set. The F1 score for the positive class (worried about automation) was 0.80. 
                 - Model was saved as a pickle file for deployment.
                 """)
 
 
-# Load the pre-trained model
-# model = jl.load('best_xgb_model.pkl')
+# -------------------------------------
+# Page 5: Automation Worry Predictor 
+# -------------------------------------
+if page == "Automation Worry Predictor":
+    st.title("Automation Worry Predictor")
+    st.markdown("""
+                This application predicts the likelihood of individuals feeling worried about job automation based on their responses to a survey. 
+                The model is trained on data obtained from PEW Research Center's survey on technology and automation (American Trends Panel Wave 27).
+                """)
 
-# Create multi-page navigation
+    # Load the pre-trained model
+    model = jl.load('best_xgb_model.pkl')
 
+    # Input fields for user to enter data
+    st.header("Enter your responses:")
+    cars3b = st.selectbox("Do you have a car?", ["Yes", "No"])
+    robjob4b = st.selectbox("Have you ever lost a job due to automation?", ["Yes", "No"])
+    cars7b = st.selectbox("Do you think automation will make your job easier?", ["Yes", "No"])
+    robjob4a = st.selectbox("Have you ever been worried about losing your job due to automation?", ["Yes", "No"])
+    cars7a = st.selectbox("Do you think automation will create more jobs?", ["Yes", "No"])
 
-# from streamlit_extras.switch_page_button import switch_page
-# from streamlit_extras.stoggle import stoggle
+    # Convert input data to appropriate format for prediction
+    input_data = pd.DataFrame({
+        'CARS3B_W27': [1 if cars3b == "Yes" else 0],
+        'ROBJOB4B_W27': [1 if robjob4b == "Yes" else 0],
+        'CARS7B_W27': [1 if cars7b == "Yes" else 0],
+        'ROBJOB4A_W27': [1 if robjob4a == "Yes" else 0],
+        'CARS7A_W27': [1 if cars7a == "Yes" else 0]
+    })
 
+    # Predict using the loaded model
+    if st.button("Predict"):
+        prediction = model.predict(input_data)
+        probability = model.predict_proba(input_data)[:, 1][0]
+        
+        if prediction[0] == 1:
+            st.success(f"You are predicted to be worried about job automation with a probability of {probability:.2f}.")
+        else:
+            st.success(f"You are predicted to not be worried about job automation with a probability of {probability:.2f}.")
 
-
-
-
-# from streamlit_extras.add_vertical_space import add_vertical_space
-# from streamlit_extras.colored_header import colored_header  
