@@ -1,3 +1,4 @@
+# Import necessary libraries
 import streamlit as st
 import joblib as jl
 import pandas as pd
@@ -10,10 +11,10 @@ page = st.sidebar.radio("Go to", ["Home", "Resume", "Projects", "Capstone Projec
 # -------------------------------------
 # Page 1: Biographical Hompage 
 # -------------------------------------
-
+# Display homepage content
 if page == "Home":
-    st.title("Welcome to My Portfolio")
-    st.header("About Me")
+    st.title("Welcome to My Portfolio") # Title
+    st.header("About Me") # Header
     st.markdown("""
                 Hello! I'm Aishwarya (Ash), a Senior Data Analyst in the home appliances industry. I have experience in various domains, including finance, consulting, and manufacturing. I enjoy working with data to solve complex business problems and drive strategic decision-making.
 
@@ -34,9 +35,9 @@ if page == "Home":
 # -------------------------------------
 
 if page == "Resume":
-    st.title("Aishwarya Cherian")
-    st.image("my_pic.jpg", width=200)
-    st.header("Education")
+    st.title("Aishwarya Cherian") # Title
+    st.image("my_pic.jpg", width=200) # Display profile picture
+    st.header("Education") # Header
     st.markdown("""
                 **M.S. Data Science**  
                 Eastern University, 2024 - 2025
@@ -107,7 +108,7 @@ if page == "Capstone Project Overview":
                 Problem framed as a supervised binary classification task.   
                 - Target variable: `ROBJOB3b_W27` (1 = worried, 0 = not worried)
 
-                Feature selection was done using chi-square test and SHAP to understand which features with the most relevant for model performance. Based on this analysis the following features were selected:
+                Feature selection was done using chi-square test and SHAP to understand which features were the most relevant for model performance. Based on this analysis the following features were selected:
                 - `CARS3B_W27`
                 - `ROBJOB4B_W27`
                 - `CARS7B_W27`
@@ -127,7 +128,7 @@ if page == "Capstone Project Overview":
 # Page 5: Automation Worry Predictor 
 # -------------------------------------
 if page == "Automation Worry Predictor":
-    st.title("Automation Worry Predictor")
+    st.title("Automation Worry Predictor") # Title
     st.markdown("""
                 This application predicts the likelihood of individuals feeling worried about job automation based on their responses to a survey. 
                 The model is trained on data obtained from PEW Research Center's survey on technology and automation (American Trends Panel Wave 27).
