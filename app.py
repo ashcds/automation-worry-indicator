@@ -97,19 +97,29 @@ if page == "Projects":
 if page == "Automation Worry Predictor":
     st.title("Automation Worry Predictor")
     st.markdown("""
-                This project aims to predict the likelihood of employees feeling worried about automation in their jobs. The model is trained on various features such as job role, industry, and demographic information.
+                **Problem Statement:**   
+                As AI and automation technologies continue to advance at a rapid pace, concerns about their impact on jobs and livelihoods is growing. 
+                This project aims to predict the likelihood of individuals feeling worried about job automation so that organizations can take proactive measures to address these concerns, provide opportunities for upskilling and support their employees.
+                
+                The model is trained on data obtained from PEW Research Center's survey on technology and automation (American Trends Panel Wave 27). 
+                
+                **Approach:**  
+                Problem framed as a supervised binary classification task.   
+                - Target variable: `ROBJOB3b_W27` (1 = worried, 0 = not worried)
 
-                **Key Steps:**
-                1. Data Collection: Gather data from employee surveys and industry reports.
-                2. Feature Engineering: Create relevant features that capture the nuances of automation anxiety.
-                3. Model Training: Train a machine learning model to predict worry levels.
-                4. Evaluation: Assess the model's performance and make improvements.
+                Feature selection was done using chi-square test and SHAP to understand which features with the most relevant for model performance. Based on this analysis the following features were selected:
+                - CARS3B_W27
+                - ROBJOB4B_W27
+                - CARS7B_W27
+                - ROBJOB4A_W27
+                - CARS7A_W27
 
-                **Technologies Used:**
-                - Python
-                - Scikit-learn
-                - Pandas
-                - NumPy
+                RandomOverSampler was used to balance the dataset as ~70% of the data was of positive class (worried about automation). The model was trained using Logistic Regression, XGBoost and Random Forest classifiers. Cross validation was used to evaluate model performance and hyperparameter tuning was done using GridSearchCV. The best performing model was selected based on F1 score.
+
+
+                **Results:**
+                - Best performing model: XGBoost Classifier with F1 score of 0.72 on test set. The F1 for the positive class (worried about automation) was 0.80. 
+                - Model was saved as a pickle file for deployment.
                 """)
 
 
