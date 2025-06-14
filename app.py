@@ -171,7 +171,7 @@ if page == "Automation Worry Predictor":
         probability = model.predict_proba(input_data)[0, 1]*100
         
         if prediction[0] == 1:
-            st.success(f"You are predicted to be worried about job automation with a probability of {probability:.2f}.")
+            st.success(f"You are predicted to be worried about job automation with a probability of {probability:.0f}%.")
         else:
-            st.success(f"You are predicted to not be worried about job automation with a probability of {probability:.2f}.")
+            st.success(f"You are predicted to not be worried about job automation with a probability of {probability:.0f}%.")
 
