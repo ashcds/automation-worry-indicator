@@ -139,9 +139,9 @@ if page == "Automation Worry Predictor":
     # Input fields for user to enter data
     st.header("Please answer the following questions:")
     cars3b = st.selectbox(
-        "How ENTHUSIASTIC are you, if at all, about the development of driverless vehicles?", 
-        ["--Select an Option--", "Very Enthusiastic", "Somewhat Enthusiastic", "Not Too Enthusiastic", "Not at All Enthusiastic"])
-    
+        "How worried are you, if at all, about the development of driverless vehicles?", 
+        ["--Select an Option--", "Very Worried", "Somewhat Worried", "Not Too Worried", "Not at All Worried"])
+
     cars7a = st.selectbox(
         "How safe would you feel sharing the road with a driverless passenger vehicle?",
         ["--Select an Option--", "Very Safe", "Somewhat Safe", "Not Too Safe", "Not at All Safe"])
@@ -158,11 +158,11 @@ if page == "Automation Worry Predictor":
 
     # Convert input data to appropriate format for prediction
     input_data = pd.DataFrame({
-        'CARS3B_W27': [1 if cars3b == "Yes" else 0],
-        'ROBJOB4B_W27': [1 if robjob4b == "Yes" else 0],
-        'CARS7B_W27': [1 if cars7b == "Yes" else 0],
-        'ROBJOB4A_W27': [1 if robjob4a == "Yes" else 0],
-        'CARS7A_W27': [1 if cars7a == "Yes" else 0]
+        'CARS3B_W27': [1 if cars3b == "Very Worried" else 2 if cars3b == "Somewhat Worried" else 3 if cars3b=="Not Too Worried"  else 4],
+        'ROBJOB4B_W27': [1 if robjob4b == "Yes Likely" else 2],
+        'CARS7B_W27': [1 if cars7b == "Very Safe" else 2 if cars7b == "Somewhat Safe" else 3 if cars7b=="Not Too Safe"  else 4],
+        'ROBJOB4A_W27': [1 if robjob4a == "Yes Likely" else 2],
+        'CARS7A_W27': [1 if cars7a == "Very Safe" else 2 if cars7a == "Somewhat Safe" else 3 if cars7a=="Not Too Safe"  else 4]
     })
 
     # Predict using the loaded model
