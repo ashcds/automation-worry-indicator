@@ -165,13 +165,29 @@ if page == "Automation Worry Predictor":
         'CARS7A_W27': [1 if cars7a == "Very Safe" else 2 if cars7a == "Somewhat Safe" else 3 if cars7a=="Not Too Safe"  else 4]
     })
 
-    # Predict using the loaded model
+    # # Predict using the loaded model
+    # if st.button("Predict"):
+    #     prediction = model.predict(input_data)
+    #     probability = model.predict_proba(input_data)[0, 1]*100
+        
+    #     if prediction[0] == 1:
+    #         st.success(f"You are predicted to be worried about job automation with a probability of {probability:.0f}%.")
+    #     else:
+    #         st.success(f"You are predicted to not be worried about job automation with a probability of {probability:.0f}%.")
+
     if st.button("Predict"):
         prediction = model.predict(input_data)
-        probability = model.predict_proba(input_data)[0, 1]*100
-        
-        if prediction[0] == 1:
-            st.success(f"You are predicted to be worried about job automation with a probability of {probability:.0f}%.")
-        else:
-            st.success(f"You are predicted to not be worried about job automation with a probability of {probability:.0f}%.")
+        prob_worried = model.predict_proba(input_data)[0, 1] * 100
+        prob_not_worried = 100 - prob_worried
 
+        if prediction[0] == 1:
+            st.success(f"Prediction: You are likely to be **worried** about job automation.")
+        else:
+            st.success(f"Prediction: You are likely to be **not worried** about job automation.")
+
+        # Show both probabilities clearly
+        st.markdown(f"""
+        #### Likelihood:
+        - Worried about job automation: **{prob_worried:.1f}%**
+        - Not worried about job automation: **{prob_not_worried:.1f}%**
+        """)
