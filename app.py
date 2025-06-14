@@ -168,7 +168,7 @@ if page == "Automation Worry Predictor":
     # Predict using the loaded model
     if st.button("Predict"):
         prediction = model.predict(input_data)
-        probability = model.predict_proba(input_data)[:, 1][0]
+        probability = model.predict_proba(input_data)[0, 1]*100
         
         if prediction[0] == 1:
             st.success(f"You are predicted to be worried about job automation with a probability of {probability:.2f}.")
